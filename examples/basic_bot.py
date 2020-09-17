@@ -8,6 +8,9 @@ module.
 There are a number of utility commands being showcased here.'''
 bot = commands.Bot(command_prefix='?', description=description)
 
+# 環境変数からBOTのTOKENと自分のユーザIDを取得
+TOKEN = os.environ['DISCORD_BOT_TOKEN']
+
 @bot.event
 async def on_ready():
     print('Logged in as')
@@ -62,4 +65,4 @@ async def _bot(ctx):
     """Is the bot cool?"""
     await ctx.send('Yes, the bot is cool.')
 
-bot.run('token')
+bot.run(TOKEN)
