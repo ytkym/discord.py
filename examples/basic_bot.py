@@ -23,8 +23,6 @@ async def on_ready():
     print(bot.user.id)
     print('------')
     channel = bot.get_channel(int(channel_id))
-    
-    print(channel)
     await channel.send(bot.user.name + 'が起動しました。')  
 
 @bot.command()
