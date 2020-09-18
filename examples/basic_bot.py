@@ -31,10 +31,10 @@ async def add(ctx, left: int, right: int):
     await ctx.send(left + right)
 
 
-@bot.command()
-async def sub(ctx, left: int, right: int):
-    """Adds two numbers together."""
-    await ctx.send(left - right)
+# @bot.command()
+# async def sub(ctx, left: int, right: int):
+#     """Adds two numbers together."""
+#     await ctx.send(left - right)
 
 @bot.command()
 async def roll(ctx, dice: str):
@@ -63,20 +63,5 @@ async def repeat(ctx, times: int, content='repeating...'):
 async def joined(ctx, member: discord.Member):
     """Says when a member joined."""
     await ctx.send('{0.name} joined in {0.joined_at}'.format(member))
-
-# メッセージ受信時実行イベント
-async def on_message(self, message):
-        if message.author.bot:
-            return
-
-        if message.content.startswith('にゃー'):
-            rand = ('ー' * random.randint(0, 30))
-            msg = "にゃ" + rand + "ん"
-            await message.channel.send(msg)
-            return
-
-        if self.user in message.mentions:
-            msg = message.author.mention + message.content
-            await message.channel.send(msg)
 
 bot.run(token)
