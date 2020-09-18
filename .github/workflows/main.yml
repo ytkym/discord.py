@@ -15,7 +15,7 @@ jobs:
       - name: Stop
         run: ssh target "cd /home/dev_y_tkym; bash stop.sh"
       - name: Git pull
-        run: ssh target "cd /home/${{ secrets.SERVER_USERNAME }}/discord.py; git pull"
+        run: ssh target "cd /home/dev_y_tkym/discord.py; git pull"
       - name: Run
         run: ssh target "cd /home/${{ secrets.SERVER_USERNAME }}; bash run.sh"
         
