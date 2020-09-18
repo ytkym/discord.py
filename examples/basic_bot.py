@@ -1,6 +1,11 @@
 import discord
 from discord.ext import commands
 import random
+import requests
+
+url = 'http://metadata.google.internal/computeMetadata/v1/instance/attributes/DISCORD_BOT_TOKEN'
+response = requests.get(url, headers={'Metadata-Flavor': 'Google'})
+token = response.text
 
 description = '''An example bot to showcase the discord.ext.commands extension
 module.
@@ -62,4 +67,4 @@ async def _bot(ctx):
     """Is the bot cool?"""
     await ctx.send('Yes, the bot is cool.')
 
-bot.run('token')
+bot.run(token)
