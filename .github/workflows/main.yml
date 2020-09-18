@@ -13,5 +13,5 @@ jobs:
           known_hosts: ${{ secrets.KNOWN_HOSTS }}
           config: ${{ secrets.CONFIG }} # ssh_config; optional
       - name: Git pull
-        run: ssh -p ${{ secrets.SERVER_PORT }} ${{ secrets.SERVER_USERNAME }}@${{ secrets.SERVER_HOST }} 'cd /home/dev_y_tkym/discord.py; and git pull'
+        run: ssh target 'cd /home/dev_y_tkym/discord.py; and git pull'
   
