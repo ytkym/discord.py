@@ -3,9 +3,12 @@ from discord.ext import commands
 import random
 import requests
 
-url = 'http://metadata.google.internal/computeMetadata/v1/instance/attributes/DISCORD_BOT_TOKEN'
+token_url = 'http://metadata.google.internal/computeMetadata/v1/instance/attributes/DISCORD_BOT_TOKEN'
 response = requests.get(url, headers={'Metadata-Flavor': 'Google'})
 token = response.text
+channel_url = 'http://metadata.google.internal/computeMetadata/v1/instance/attributes/BOOT_LOG_CHANNEL_ID'
+response = requests.get(url, headers={'Metadata-Flavor': 'Google'})
+channel = response.text
 
 description = '''An example bot to showcase the discord.ext.commands extension
 module.
@@ -18,8 +21,9 @@ async def on_ready():
     print('Logged in as')
     print(bot.user.name)
     print(bot.user.id)
-    await ctx.send('Logged in as' + bot.user.name)
     print('------')
+    channel = client.get_channel(channel)
+    await channel.send(bot.user.name + 'が起動しました。')  
 
 @bot.command()
 async def add(ctx, left: int, right: int):
