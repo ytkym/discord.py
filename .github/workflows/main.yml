@@ -13,5 +13,5 @@ jobs:
           name: id_rsa
           known-hosts: ${{ secrets.KNOWN_HOSTS }}
       - name: Git pull
-        run: ssh -p ${{ secrets.SERVER_PORT }} ${{ secrets.SERVER_USERNAME }}@${{ secrets.SERVER_HOST }}.biz 'cd /home/dev_y_tkym/discord.py; and git pull'
+        run: ssh -p ${{ secrets.SERVER_PORT }} ${{ secrets.SERVER_USERNAME }}@${{ secrets.SERVER_HOST }} 'cd /home/dev_y_tkym/discord.py; and git pull'
   
