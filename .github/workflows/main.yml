@@ -12,8 +12,6 @@ jobs:
           name: id_rsa # optional
           known_hosts: ${{ secrets.KNOWN_HOSTS }}
           config: ${{ secrets.CONFIG }} # ssh_config; optional
-      - name: Stop
-        run: ssh target "bash stop.sh"
       - name: Git pull
         if: ${{ always() }}
         run: ssh target "cd discord.py; git pull"
