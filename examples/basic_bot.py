@@ -22,7 +22,7 @@ async def on_ready():
     print(bot.user.name)
     print(bot.user.id)
     print('------')
-    channel = discord.Client().get_channel(channel_id)
+    channel = bot.get_channel(int(channel_id))
     
     print(channel)
     await channel.send(bot.user.name + 'が起動しました。')  
