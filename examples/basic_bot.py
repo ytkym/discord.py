@@ -8,7 +8,7 @@ response = requests.get(token_url, headers={'Metadata-Flavor': 'Google'})
 token = response.text
 channel_url = 'http://metadata.google.internal/computeMetadata/v1/instance/attributes/BOOT_LOG_CHANNEL_ID'
 response = requests.get(channel_url, headers={'Metadata-Flavor': 'Google'})
-channel = response.text
+channel_id = response.text
 
 description = '''An example bot to showcase the discord.ext.commands extension
 module.
@@ -22,7 +22,7 @@ async def on_ready():
     print(bot.user.name)
     print(bot.user.id)
     print('------')
-    channel = discord.Client().get_channel(channel)
+    channel = discord.Client().get_channel(channel_id)
     await channel.send(bot.user.name + 'が起動しました。')  
 
 @bot.command()
