@@ -18,6 +18,7 @@ async def on_ready():
     print('Logged in as')
     print(bot.user.name)
     print(bot.user.id)
+    await ctx.send('Logged in as' + bot.user.name)
     print('------')
 
 @bot.command()
