@@ -30,6 +30,12 @@ async def add(ctx, left: int, right: int):
     """Adds two numbers together."""
     await ctx.send(left + right)
 
+
+@bot.command()
+async def sub(ctx, left: int, right: int):
+    """Adds two numbers together."""
+    await ctx.send(left - right)
+
 @bot.command()
 async def roll(ctx, dice: str):
     """Rolls a dice in NdN format."""
