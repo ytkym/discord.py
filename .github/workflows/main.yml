@@ -1,8 +1,8 @@
 name: SSH Server Deploy
 on: [push]
 jobs:
-  build:
-    name: Build
+  deploy:
+    name: Deploy
     runs-on: ubuntu-latest
     steps:
       - name: Install SSH key
@@ -15,6 +15,7 @@ jobs:
       - name: Stop
         run: ssh target "bash stop.sh"
       - name: Git pull
+        if: ${{ always() }}
         run: ssh target "cd discord.py; git pull"
       - name: Run
         run: ssh target "bash run.sh"
